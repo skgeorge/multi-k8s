@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: postgres-deployment
 spec:
-  replicas:
+  replicas: 1
   selector:
     matchLabels:
       component: postgres
@@ -23,7 +23,7 @@ spec:
             - containerPort: 5432
           volumeMounts:
             - name: postgres-storage
-              mountPath: /var/lib/pistgesql/data
+              mountPath: /var/lib/postgresql/data
               subPath: postgres
           env:
             - name: PGPASSWORD
